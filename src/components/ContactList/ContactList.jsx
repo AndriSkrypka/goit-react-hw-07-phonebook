@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import Filter from '../Filter/Filter';
-import { filterContacts } from 'redux/Contacts/contactsActions';
+import { filterContact } from 'redux/Contacts/contactsSlice';
 import { deleteContact } from 'redux/Contacts/contactsOperations';
 
 export default function ContactList() {
@@ -11,7 +11,7 @@ export default function ContactList() {
   console.log(contacts);
 
   const handlerFilter = e => {
-    dispatch(filterContacts(e.target.value));
+    dispatch(filterContact(e.target.value));
   };
 
   const filteredContacts = () => {

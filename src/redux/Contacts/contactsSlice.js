@@ -28,8 +28,8 @@ const contactManager = createSlice({
   extraReducers: {
     [fetchContacts.fulfilled]: (state, { payload }) => {state.contacts = payload; state.isLoading = false } ,
     [addContact.fulfilled]: (state, { payload }) => {state.contacts = [...state.contacts, payload]; state.isLoading = false},
-    [deleteContact.fulfilled]: (state, { payload }) => {state.contacts.filter(({ id }) => id !== payload); state.isLoading = false},
-    
+    // [deleteContact.fulfilled]: (state, { payload }) => {state.contacts.filter(({ id }) => id !== payload); state.isLoading = false},
+    [deleteContact.fulfilled]: (state, { payload }) => {state.contacts = state.contacts.filter(({ id }) => id !== payload); state.isLoading = false},
     [fetchContacts.pending]: (state) => {state.isLoading = true; state.error = null},
     [addContact.pending]: (state) => {state.isLoading = true; state.error = null},
     [deleteContact.pending]: (state) => {state.isLoading = true; state.error = null},
