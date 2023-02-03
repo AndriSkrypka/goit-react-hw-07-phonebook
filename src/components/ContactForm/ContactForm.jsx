@@ -2,14 +2,14 @@ import { addContact } from '../../redux/Contacts/contactsOperations';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import ContactList from '../ContactList/ContactList';
+// import ContactList from '../ContactList/ContactList';
 
 import { useState } from 'react';
 
 import { toast } from 'react-toastify';
 
 import {
-  deleteContact,
+  // deleteContact,
   fetchContacts,
 } from 'redux/Contacts/contactsOperations';
 
@@ -39,9 +39,7 @@ export const ContactForm = () => {
     }
   };
 
-  const handlerDelete = id => {
-    dispatch(deleteContact(id));
-  };
+
 
   const onSubmit = event => {
     event.preventDefault();
@@ -89,7 +87,6 @@ export const ContactForm = () => {
         </label>
         <button type="submit">Add contact</button>
       </form>
-      <ContactList handlerDelete={handlerDelete} />
     </>
   );
 };

@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import Filter from '../Filter/Filter';
 import { filterContacts } from 'redux/Contacts/contactsActions';
+import { deleteContact } from 'redux/Contacts/contactsOperations';
 
-export default function ContactList({ handlerDelete }) {
-  const contacts = useSelector(state => state.contacts.items);
+export default function ContactList() {
+  const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
   const filter = useSelector(state => state.contacts.filter);
   console.log(contacts);
@@ -17,6 +18,11 @@ export default function ContactList({ handlerDelete }) {
     return contacts.filter(el =>
       el.name.toLowerCase().includes(filter.toLowerCase())
     );
+  };
+
+
+  const handlerDelete = id => {
+    dispatch(deleteContact(id));
   };
 
   return (
